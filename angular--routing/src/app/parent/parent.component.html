@@ -1,0 +1,4 @@
+<p>Total click count:{{clickCount}} </p>
+<p *ngFor="let item of list">{{item}}</p>
+<app-child (onNewItemSave)="onNewItemSave($event)" (onItemClick)="onItemClick($event)" [data]="data1"></app-child>
+<!-- <app-child name="data1"></app-child> -->

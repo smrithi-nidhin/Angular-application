@@ -1,0 +1,45 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-4"> </div>
+        <div class="col-4" style="font-size: 30px;margin-top: 30px;">
+            <h2
+                style="color: red;margin-left: 60px;margin-bottom: 20px;font-weight: bold;font-family: 'Times New Roman', Times, serif;">
+                WELCOME TO SIB</h2>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+
+            <div class="jumbotron"
+                style="width: 450px;height: 350px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
+                <form [formGroup]="loginForm" (ngSubmit)="onLoginClick()">
+                <div class="form-group">
+
+                    <label for="">UserName</label>
+                    <input type="text" formControlName="username" class="form-control" name="uname" id="uname"
+                        placeholder="Enter Username"><br>
+                        <div *ngIf="loginForm.get('username').touched && loginForm.get('username').errors" class="error">username is required</div>
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" formControlName="password" class="form-control" name="passw" id="pwd"
+                        placeholder="Enter Password"><br>
+                        <div *ngIf="loginForm.get('password').touched && loginForm.get('password').errors" class="error">
+                            <div *ngIf="loginForm.get('password').errors.required">password is required</div>
+                            <div *ngIf="loginForm.get('password').errors.minlength">password length should be minimum 4 characters</div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit"  class="btn btn-success" > Login</button>
+                </div>
+            </form>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</div>
+

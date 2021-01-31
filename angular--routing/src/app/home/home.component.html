@@ -1,0 +1,86 @@
+<nav class="navbar navbar-expand-lg navbar-light badge-success">
+    <img src="D:\Luminarmeanstack\htmlworks\images\0.jpg" style="width: 40px;height: 40px;border-radius: 50px;"
+        alt="">
+    <a class="navbar-brand" href="#" style="font-family: 'Times New Roman', Times, serif;font-weight: bold;">SOUTH
+        INDIAN BANK</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="margin-left: 600px;">
+            <li class="nav-item active">
+                <a class="nav-link" href="home.html"
+                    style="font-family: 'Times New Roman', Times, serif;font-weight: bold;">HOME <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="userhome.html"
+                    style="font-family: 'Times New Roman', Times, serif;font-weight: bold;">DEPOSIT <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="userhome.html"
+                    style="font-family: 'Times New Roman', Times, serif;font-weight: bold;">WITHDRAW <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="login.html"
+                    style="background-color: floralwhite;border-radius: 10px;font-family: 'Times New Roman', Times, serif;">LOGOUT
+                    <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+<div class="container">
+    <a routerLink="/transaction-history">Transaction history</a>
+   Balance:{{balance}}
+    <div class="row">
+        <div class="col-6" >
+            <div class="jumbotron" style="width: 500px;height: 450px;margin-left: 30px;" id="depo">
+                <form [formGroup]="depositForm" (ngSubmit)="deposit()">
+                <h3 style="margin-left: 150px;">DEPOSIT</h3>
+                <div class="form-group">
+                    <label for="">UserName</label>
+                    <input formControlName="dpUsername" type="text" class="form-control"  name="uname" id="uname"
+                        placeholder="Enter Username"><br>
+                        <div *ngIf="depositForm.get('dpUsername').touched && depositForm.get('dpUsername').errors" class="error">username is required</div>
+                </div>
+                <div class="form-group">
+                    <label for="">Amount</label>
+                    <input formControlName="dpAmount" type="text" class="form-control" name="amount" id="amount" placeholder="Enter amount"><br>
+                    <div *ngIf="depositForm.get('dpAmount').touched && depositForm.get('dpAmount').errors" class="error">Amount is required</div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" (click)="deposit()" class="btn btn-success" >
+                        Deposit</button>
+                </div>
+            </form>
+                <h4 id="deposit_id"></h4>
+
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="jumbotron" style="width: 500px;height: 450px;margin-left: 30px;">
+                <form [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
+                <h3 style="margin-left: 150px;">WITHDRAW</h3>
+                <div class="form-group">
+                    <label for="">UserName</label>
+                    <input formControlName="wdUsername" type="text" class="form-control" name="uname1" id="uname1"
+                        placeholder="Enter Username"><br>
+                        <div *ngIf="withdrawForm.get('wdUsername').touched && withdrawForm.get('wdUsername').errors" class="error">username is required</div>
+                </div>
+                <div class="form-group">
+                    <label for="">Amount</label>
+                    <input formControlName="wdAmount" type="text" class="form-control" name="amount1" id="amount1" placeholder="Enter amount"><br>
+                    <div *ngIf="withdrawForm.get('wdAmount').touched && withdrawForm.get('wdAmount').errors" class="error">username is required</div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" (click)="withdraw()" class="btn btn-success">
+                        Withdraw</button>
+                </div>
+            </form>
+                <h4 id="withdraw_id"></h4>
+
+            </div>
+        </div>
+    </div>
+</div>

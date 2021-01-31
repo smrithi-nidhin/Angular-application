@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Users</h1>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>username</th>
+        </tr>
+        <tr *ngFor="let user of users">
+            <td>{{user._id}}</td>
+            <!-- <td>{{user.username | custom :'test'}}</td> -->
+            <td>{{user.username | custom}}</td>
+            <td (click)="deleteUser(user._id)">Delete</td>
+        </tr>
+    </table>
+
+</div>
